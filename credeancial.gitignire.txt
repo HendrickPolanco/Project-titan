@@ -1,0 +1,32 @@
+# User Information
+
+Hostname: hendrick
+
+Username: titan_admin
+
+Passswd:@Joan2003
+
+Server Purpose: homelab multi-services
+
+
+
+
+
+.DS_Store
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+admin_user: titan_admin
+Passswd:@Joan2003
