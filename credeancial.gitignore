@@ -1,13 +1,7 @@
 # User Information
-
-
-
-
-
-
-
 .DS_Store
 
+.env
 
 
 
@@ -22,5 +16,4 @@
 
 
  
-admin_user: titan_admin
-Passswd:@Joan2003
+
