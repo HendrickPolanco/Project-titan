@@ -68,6 +68,28 @@ Old ones pointing at the previous IP won't auto-update and can cause confusing s
 
 ---
 
+## Preventing this from happening again — DHCP reservation
+
+Once the new router/subnet is settled, set a DHCP reservation for TITAN so its IP never drifts again, which avoids repeating this entire checklist after every reboot or router change.
+
+**Router used: Cudy (managed via the Cudy app).** Path: **Advanced Settings → Security → IP/MAC Binding → Add**. Select TITAN's MAC address from the connected-devices list (or paste it manually), enter the IP to reserve (reusing the current one avoids having to re-touch every UFW rule/SSH config again), save & apply.
+
+Get TITAN's MAC address (the physical, never-changing identifier of its network card — unrelated to any "Mac" computer):
+```bash
+ip a | grep -A 1 wlo1
+# look for the line starting with link/ether
+```
+
+**Verify it actually took effect** — don't just trust that saving the setting worked:
+```bash
+sudo reboot
+# after it comes back up:
+ip a | grep wlo1 -A 2
+# confirm the IP is still the same one as before the reboot
+```
+
+---
+
 ## Fast diagnostic sequence when "something stopped working" after a network change
 
 1. `ip a` — did TITAN's own IP change?
